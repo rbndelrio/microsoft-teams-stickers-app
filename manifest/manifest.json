@@ -5,10 +5,10 @@
     "id": "f1bc95ac-b991-4cd0-9ce5-7e4a70f4339b",
     "packageName": "com.microsoft.teams.stickers",
     "developer": {
-        "name": "<company name>",
-        "websiteUrl": "<website url>",
-        "privacyUrl": "<privacy url>",
-        "termsOfUseUrl": "<terms of use url>"
+        "name": "Findsome & Winmore",
+        "websiteUrl": "https://findsomewinmore.com",
+        "privacyUrl": "https://findsomewinmore.com/idk",
+        "termsOfUseUrl": "https://findsomewinmore.com/lmao"
     },
     "icons": {
         "color": "color.png",
@@ -24,7 +24,7 @@
     "accentColor": "#FFFFFF",
     "composeExtensions": [
         {
-            "botId": "<bot id>",
+            "botId": "91a0a6ac-561a-44ae-982a-86f2faf7e9be",
             "canUpdateConfiguration": false,
             "commands": [
                 {
