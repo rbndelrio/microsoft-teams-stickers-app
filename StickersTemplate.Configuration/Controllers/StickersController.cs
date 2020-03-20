@@ -79,7 +79,7 @@ namespace StickersTemplate.Configuration.Controllers
                 // Resize the image to fit within the maximum dimensions
                 using (var memoryStream = new MemoryStream())
                 {
-                    ImageBuilder.Current.Build(stickerViewModel.File, memoryStream, new ResizeSettings($"maxwidth={Sticker.MaximumDimensionInPixels}&maxheight={Sticker.MaximumDimensionInPixels}"));
+                    ImageBuilder.Current.Build(stickerViewModel.File, memoryStream, new ResizeSettings($"process={ProcessWhen.No}"));
                     memoryStream.Seek(0, SeekOrigin.Begin);
 
                     imageUri = await this.blobStore.UploadBlobAsync(id, memoryStream);
