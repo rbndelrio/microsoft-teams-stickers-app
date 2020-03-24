@@ -67,8 +67,8 @@ namespace StickersTemplate.Configuration.Controllers
         /// </summary>
         /// <param name="stickerViewModel">Sticker View Model</param>
         /// <returns>Task Action Result</returns>
+        /// [ValidateAntiForgeryToken]
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create([Bind(Include = "File,Name,Keywords")] StickerViewModel stickerViewModel)
         {
             if (this.ModelState.IsValid)
