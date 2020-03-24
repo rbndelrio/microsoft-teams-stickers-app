@@ -35,14 +35,21 @@ namespace StickersTemplate.Cards
         /// <returns>An <see cref="Attachment"/>.</returns>
         public Attachment ToAttachment()
         {
-            var image = new Attachment()
+            var card = new AdaptiveCard
             {
-                ContentUrl = this.sticker.ImageUri.ToString(),
-                ContentType = "image/png",
-                Name = this.sticker.Name
+                Speak = this.sticker.Name,
+                Body = new List<AdaptiveElement>()
+                {
+                    new AdaptiveImage
+                    {
+                        HorizontalAlignment = AdaptiveHorizontalAlignment.Center,
+                        Url = this.sticker.ImageUri,
+                        AltText = this.sticker.Name
+                    }
+                }
             };
 
-            return image;
+            return card.ToAttachment();
         }
     }
 }
