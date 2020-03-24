@@ -74,21 +74,12 @@ namespace StickersTemplate.Configuration.Controllers
             if (this.ModelState.IsValid)
             {
                 var id = Guid.NewGuid().ToString("D");
-                Uri imageUri;
-
-                // Resize the image to fit within the maximum dimensions
-                using (var memoryStream = new MemoryStream())
-                {
-                    ImageBuilder.Current.Build(stickerViewModel.File, memoryStream, new ResizeSettings($"process={ProcessWhen.No}"));
-                    memoryStream.Seek(0, SeekOrigin.Begin);
-
-                    imageUri = await this.blobStore.UploadBlobAsync(id, memoryStream);
-                }
+                var uri = await this.blobStore.UploadBlobAsync(id, stickerViewModel.File.InputStream);
 
                 await this.stickerStore.CreateStickerAsync(new Sticker
                 {
                     Id = id,
-                    ImageUri = imageUri,
+                    ImageUri = uri,
                     Name = stickerViewModel.Name,
                     Keywords = stickerViewModel?.GetKeywordsList(),
                     State = StickerState.Active,
