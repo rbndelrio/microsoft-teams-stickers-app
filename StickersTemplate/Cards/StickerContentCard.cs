@@ -41,21 +41,8 @@ namespace StickersTemplate.Cards
                 ContentType = "image/png",
                 Name = this.sticker.Name
             };
-            // var card = new AdaptiveCard
-            // {
-            //     Speak = this.sticker.Name,
-            //     Body = new List<AdaptiveElement>()
-            //     {
-            //         new AdaptiveImage
-            //         {
-            //             HorizontalAlignment = AdaptiveHorizontalAlignment.Center,
-            //             Url = this.sticker.ImageUri,
-            //             AltText = this.sticker.Name
-            //         }
-            //     }
-            // };
 
-            return card.ToAttachment();
+            return image;
         }
     }
 }
